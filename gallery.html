@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - BRANDINK STUDIO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- GALLERY HEADER -->
+        <section class="gallery-hero">
+            <a href="index.html" class="home-btn">← Back to Home</a>
+            <h1 class="gallery-title">Our Portfolio</h1>
+            <p class="gallery-subtitle">Explore our latest creative works</p>
+        </section>
+
+        <!-- GALLERY FILTERS -->
+        <section class="gallery-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Works</button>
+                <button class="filter-btn" data-filter="poster">Posters</button>
+                <button class="filter-btn" data-filter="website">Websites</button>
+                <button class="filter-btn" data-filter="logo">Logos</button>
+            </div>
+
+            <!-- GALLERY GRID -->
+            <div class="gallery-grid" id="galleryGrid"></div>
+        </section>
+
+
+
+        <!-- LIGHTBOX MODAL -->
+        <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+            <div class="lightbox-content" onclick="event.stopPropagation()">
+                <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+                <img id="lightboxImage" src="" alt="Gallery item">
+                <div class="lightbox-info">
+                    <h3 id="lightboxTitle"></h3>
+                    <p id="lightboxDesc"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TERMS MODAL -->
+    <div id="termsModal" class="terms-modal" onclick="closeTerms(event)">
+        <div class="terms-content" onclick="event.stopPropagation()">
+            <button class="terms-close" onclick="closeTerms()">✕</button>
+            <h2>Terms and Conditions</h2>
+            <div class="terms-text">
+                <p>These Terms and Conditions (“Terms”) govern the services provided by BrandInk Studios (“Service Provider”) to the Client. By using our services, the Client agrees to these Terms.</p>
+                <p><strong>1. Services</strong><br>BrandInk Studios provides website design, development, branding, graphic design, SEO, and related digital services based on the selected package.</p>
+                <p><strong>2. Pricing</strong><br>Pricing covers only the services mentioned in the package. Domain, hosting, premium tools, plugins, or third-party services are not included unless specified.</p>
+                <p><strong>3. Payment</strong><br>A minimum advance payment is required before starting the project. Final files or website deployment will be delivered only after full payment is completed.</p>
+                <p><strong>4. Revisions</strong><br>Limited revisions are included depending on the package. Additional revisions or major changes may incur extra charges.</p>
+                <p><strong>5. Timeline</strong><br>Project timelines are estimates and may change due to delayed content, feedback, or communication from the Client.</p>
+                <p><strong>6. Ownership</strong><br>Final project ownership is transferred to the Client only after full payment. BrandInk Studios may showcase completed work in its portfolio unless restricted in writing.</p>
+                <p><strong>7. Refund Policy</strong><br>Advance payments are non-refundable once work has started. Project cancellations after commencement will not be eligible for refunds.</p>
+                <p><strong>8. Support</strong><br>Free support or maintenance is provided only for the duration mentioned in the package. Additional support will be charged separately.</p>
+                <p><strong>9. Liability</strong><br>BrandInk Studios is not responsible for losses, downtime, data issues, hosting failures, or third-party service problems.</p>
+                <p><strong>10. Modifications</strong><br>We reserve the right to update these Terms at any time without prior notice.</p>
+                <p><strong>11. Governing Law</strong><br>These Terms shall be governed and interpreted in accordance with the laws of India.<br>Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts located in Kerala, India.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECRET PROMPT MODAL -->
+    <div id="secretPromptModal" class="lightbox-modal" onclick="closeSecretPrompt(event)">
+        <div class="lightbox-content prompt-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeSecretPrompt()">✕</button>
+            <div class="lightbox-info">
+                <h3 style="margin-bottom: 1rem;">Developer Access</h3>
+                <input type="password" id="secretInput" placeholder="Enter Access Key" class="admin-input">
+                <button onclick="checkSecret()" class="gallery-card-view-btn" style="margin-top: 1rem;">Authenticate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div id="adminPanel" class="admin-panel hidden">
+        <div class="admin-header">
+            <h2>Admin Dashboard</h2>
+            <button class="home-btn" style="position: relative; top: 0; left: 0;" onclick="closeAdmin()">Close Admin</button>
+        </div>
+        <div class="admin-content">
+            <div class="admin-form">
+                <h3>Add New Project</h3>
+                <input type="text" id="newTitle" placeholder="Project Title" class="admin-input">
+                <select id="newCategory" class="admin-input">
+                    <option value="website">Website</option>
+                    <option value="poster">Poster</option>
+                    <option value="logo">Logo</option>
+                </select>
+                <input type="text" id="newImage" placeholder="Image URL" class="admin-input">
+                <textarea id="newDesc" placeholder="Project Description" class="admin-input" rows="3"></textarea>
+                <button onclick="addProject()" class="gallery-card-view-btn">Add Project</button>
+            </div>
+            <div class="admin-list" id="adminProjectList">
+                <!-- Admin project items will be injected here -->
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>
