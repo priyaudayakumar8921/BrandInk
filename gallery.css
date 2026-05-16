@@ -389,22 +389,22 @@
     width: 100%;
     padding: 0.75rem 1rem;
     margin-bottom: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(243, 229, 171, 0.3);
     border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    color: #5B0E14 !important; /* Override global input color for dark modal */
+    background: rgba(243, 229, 171, 0.1);
+    color: #F3E5AB !important; /* Override global input color for dark modal */
     font-size: 1rem;
     outline: none;
     transition: all 0.3s ease;
 }
 
 .admin-input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(243, 229, 171, 0.5);
 }
 
 .admin-input:focus {
-    border-color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.2);
+    border-color: #F3E5AB;
+    background: rgba(243, 229, 171, 0.2);
 }
 
 .admin-panel {
@@ -412,7 +412,7 @@
     inset: 0;
     z-index: 200;
     background-color: #5B0E14;
-    color: #FFFFFF;
+    color: #F3E5AB;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -428,7 +428,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(243, 229, 171, 0.1);
 }
 
 .admin-content {
@@ -469,14 +469,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(243, 229, 171, 0.05);
     padding: 1rem;
     border-radius: 1rem;
     transition: all 0.3s ease;
 }
 
 .admin-item:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(243, 229, 171, 0.1);
 }
 
 .admin-item-info {
