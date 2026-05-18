@@ -196,28 +196,7 @@ function populateServiceSelect() {
     });
 }
 
-// FORM SUBMISSION
-function handleFormSubmit(event) {
-    event.preventDefault();
-    
-    const form = event.target;
-    const name = form.querySelector('input[type="text"]').value;
-    const email = form.querySelector('input[type="email"]').value;
-    const service = form.querySelector('select').value;
-    const details = form.querySelector('textarea').value;
 
-    // Here you would typically send this to a server
-    console.log({
-        name,
-        email,
-        service,
-        details
-    });
-
-    // Reset form
-    form.reset();
-    alert('Thank you! We will get back to you soon.');
-}
 
 // CHAT POPUP
 let chatState = 'initial'; // states: initial, services, service_detail, success
